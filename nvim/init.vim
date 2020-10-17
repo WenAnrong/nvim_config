@@ -51,6 +51,13 @@ set t_ut=  "防止vim背景颜色错误
 " 插件
 call plug#begin('~/.vim/plugged')
 
+" Web和markdown
+Plug 'mattn/emmet-vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 " coc.nvim代码补全
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -74,6 +81,9 @@ Plug 'yggdroot/indentline'
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
 
+" 代码显示颜色
+Plug 'gko/vim-coloresque'
+
 " 彩色括号
 Plug 'luochen1990/rainbow'
 
@@ -88,6 +98,13 @@ Plug 'voldikss/vim-translator'
 
 call plug#end()
 
+
+
+" =========
+" emmet-vim
+" =========
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 
 " =========
@@ -128,6 +145,11 @@ map tt :NERDTreeToggle<CR>
 " =========
 " vim-airline
 " =========
+"字体设置
+let g:airline_powerline_fonts = 1
+" 关闭状态显示空白符号计数
+ let g:airline#extensions#whitespace#enabled = 0
+ let g:airline#extensions#whitespace#symbol = '!'
 " 设置状态栏
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -253,7 +275,7 @@ let g:coc_global_extensions = [
             \ 'coc-flutter-tools']
 
 set hidden
-set updatetime=200
+set updatetime=100
 set shortmess+=c
 
 let g:coc_snippet_next = '<c-n>'
