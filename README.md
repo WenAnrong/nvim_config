@@ -10,6 +10,7 @@
 #### for coc.nvim
 ```shell
 sudo npm install -g neovim
+sudo pip3 install pynvim
 sudo pip3 install pylint
 sudo npm install -g typescript
 sudo pip3 install jedi
@@ -17,5 +18,5 @@ sudo pip3 install jedi
 
 #### for tagbar
 ```shell
-sudo apt install ctags
+sudo dnf install ctags
 ```
