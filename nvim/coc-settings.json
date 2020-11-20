@@ -2,7 +2,6 @@
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "codeLens.enable": true,
-    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
     "suggest.completionItemKindLabels": {
         "class": "\uf0e8",
         "color": "\ue22b",
