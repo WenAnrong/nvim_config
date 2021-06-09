@@ -1,4 +1,5 @@
 " 编码设置
+let g:airline_powerline_fonts = 1   " 字体设置
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set enc=utf8
 set fencs=utf8,gbk,gb2312,gb18030
@@ -8,7 +9,7 @@ set nocompatible
 filetype on
 filetype plugin indent on
 
-" Tab 转空格
+" Tab转空格
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -46,15 +47,18 @@ set relativenumber    "  把当前所在行的行号向前突出
 set wildmenu    "  让vim命令可用Tab补全
 set hlsearch      " 变输入搜索词边高亮
 set incsearch      " 光标自动跳转到搜索结果上
-set t_ut=  "防止vim背景颜色错误
+set t_ut=  " 防止vim背景颜色错误
 
 " 插件
 call plug#begin('~/.vim/plugged')
 
+" vim中文文档
+Plug 'yianwillis/vimcdoc'
+
 " Web和markdown
 Plug 'mattn/emmet-vim'
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
@@ -103,8 +107,52 @@ call plug#end()
 " =========
 " emmet-vim
 " =========
+" 只在html/css文件中生效
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+
+
+" =========
+" vim-markdown
+" =========
+let g:vim_markdown_math = 1
+
+
+
+" =========
+" markdown-preview
+" =========
+nmap <silent> <F7> <Plug>MarkdownPreview
+imap <silent> <F7> <Plug>MarkdownPreview
+nmap <silent> <F8> <Plug>StopMarkdownPreview
+imap <silent> <F8> <Plug>StopMarkdownPreview
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browser = ''
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+let g:mkdp_markdown_css = '~/something/My-Typora-Themes/zj.css'
+let g:mkdp_highlight_css = '~/something/My-Typora-Themes/zj.css'
+let g:mkdp_port = ''
+source ~/.config/nvim/md-snippets.vim
 
 
 " =========
@@ -131,7 +179,7 @@ colo monokai
 " =========
 let g:tagbar_width=30
 " 将tagbar的开关按键设置为 F4
-nnoremap <silent> <F4> :TagbarToggle<CR>
+nnoremap <silent> <F5> :TagbarToggle<CR>
 
 
 
@@ -145,8 +193,6 @@ map tt :NERDTreeToggle<CR>
 " =========
 " vim-airline
 " =========
-"字体设置
-let g:airline_powerline_fonts = 1
 " 关闭状态显示空白符号计数
  let g:airline#extensions#whitespace#enabled = 0
  let g:airline#extensions#whitespace#symbol = '!'
@@ -187,35 +233,48 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 " 设置切换tab的快捷键 <\> + <q> 退出当前的 tab
 nmap <leader>q :bp<cr>:bd #<cr>
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" old vim-powerline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
 
 
 " =========
 " nerdcommenter
 " =========
-"add spaces after comment delimiters by default
+" 默认在注释分隔符后添加空格
 let g:NERDSpaceDelims = 1
 " python 自动的会多加一个空格
 au FileType python let g:NERDSpaceDelims = 0
  
-" Use compact syntax for prettified multi-line comments
+" 对美化的多行注释使用紧凑语法
 let g:NERDCompactSexyComs = 1
  
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
  
-" Set a language to use its alternate delimiters by default
+" 将语言设置为默认使用其备用分隔符
 let g:NERDAltDelims_java = 1
  
 " 自定义格式
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
  
-" Allow commenting and inverting empty lines (useful when commenting a region)
+" 允许注释和反转空行（注释区域时很有用）
 let g:NERDCommentEmptyLines = 1
  
-" Enable trimming of trailing whitespace when uncommenting
+" 取消注释
 let g:NERDTrimTrailingWhitespace = 1
  
-" Enable NERDCommenterToggle to check all selected lines is commented or not
+" 启用 NERDCommenterToggle 以检查所有选定的行是否已注释
 let g:NERDToggleCheckAllLines = 1
 
 
@@ -260,6 +319,7 @@ let g:rainbow_conf = {
 " =========
 " coc.nvim
 " =========
+" coc 插件
 let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-vimlsp',
@@ -270,8 +330,10 @@ let g:coc_global_extensions = [
             \ 'coc-css',
             \ 'coc-pairs',
             \ 'coc-snippets',
+            \ 'coc-xml',
             \ 'coc-markdownlint',
             \ 'coc-explorer',
+            \ 'coc-marketplace',
             \ 'coc-flutter-tools']
 
 set hidden
@@ -281,18 +343,14 @@ set shortmess+=c
 let g:coc_snippet_next = '<c-n>'
 let g:coc_snippet_prev = '<c-p>'
 
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " 将SignColumn和Number列合并到一个
   set signcolumn=number
 else
   set signcolumn=yes
 endif
 
 " 让Tab键可以补全
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -305,23 +363,21 @@ function! s:check_back_space() abort
 endfunction
 
 " Ctrl+o 调出自动补全
-inoremap <silent><expr> <c-o> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" 用回车键确认补全
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" 用 `[g` and `]g` 来查找上一个或下一个代码报错
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" GoTo code navigation.
+" 跳转到函数
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -338,26 +394,26 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
+" 让同类词高亮
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
+" 变量重命名
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
+" 代码格式化
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" 代码折叠
+ augroup mygroup
+   autocmd!
+   " Setup formatexpr specified filetype(s).
+   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+   " Update signature help on jump placeholder.
+   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+ augroup end
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
+" 类似与vscode中对代码进行右键
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
@@ -366,8 +422,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+" 映射函数和类文本对象
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -377,39 +432,50 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" 使用 CTRL-S 选择选择范围
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Add `:Format` command to format current buffer.
+" 使用 `:Format` 命令来格式化当前缓冲区
 command! -nargs=0 Format :call CocAction('format')
 
-" Add `:Fold` command to fold current buffer.
+" 使用 `:Fold` 命令折叠当前缓冲区
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Add `:OR` command for organize imports of the current buffer.
+" 使用 `:OR` 命令用于组织当前缓冲区的导入
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
+" 添加 (Neo)Vim 的原生状态行支持
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
+" 显示所以诊断
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
+" 管理扩展功能
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
+" 显示命令
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
+" 查找当前文档的符号
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
+" 搜索工作区符号
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
+" 为下一个项目做默认操作
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
+" 为上一个项目做默认操作
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
+" 恢复最新的coc列表
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+
+" 背景透明
+hi Normal ctermfg=252 ctermbg=none
