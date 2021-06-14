@@ -55,12 +55,15 @@ pip3安装：
 sudo pip3 install pynvim
 sudo pip3 install pylint
 sudo pip3 install jedi
+
+npm安装：
 sudo npm install -g neovim
 sudo npm install -g typescript
 ```
 
 ## 简介
 支持的代码补全（使用coc.nvim）：java、html、css、javaScript、python、markdown、dart、flutter、vimlsp、xml、josn、sql等
+golang、c、c++的补全不支持，请自行添加
 
 ### 配置文件目录
 - init.vim：neovim的主要配置文件
@@ -94,6 +97,7 @@ sudo npm install -g typescript
 | \<Leader> + cl     | 删除空行                           |
 | \<Leader> + ca     | 删除行首空格                       |
 | \<Leader> + cj     | 从当前字符换行                     |
+|  Alt+r             |   一键运行代码                  |
 
 ---
 
