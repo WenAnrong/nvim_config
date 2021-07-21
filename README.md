@@ -1,8 +1,8 @@
 # 我的neovim配置文件
-此配置文件借鉴于[zunpeng/neovim](https://github.com/zunpeng/neovim)
 
+此配置文件借鉴了[zunpeng/neovim](https://github.com/zunpeng/neovim) 和 [theniceboy](https://github.com/theniceboy/nvim/)
 
-<!-- vim-markdown-toc GFM -->
+<!-- vim-markdown-toc Redcarpet -->
 
 * [安装](#安装)
 * [简介](#简介)
@@ -12,17 +12,15 @@
         * [正常模式 (Normal-mode)](#正常模式-normal-mode)
     * [插件中的快捷键](#插件中的快捷键)
         * [vim-translator](#vim-translator)
-        * [NERDTree](#nerdtree)
-        * [suda.vim](#sudavim)
+        * [suda.vim](#suda-vim)
         * [vim-floaterm](#vim-floaterm)
         * [vim-surround](#vim-surround)
         * [markdown-preview](#markdown-preview)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-bookmarks](#vim-bookmarks)
         * [vim-easy-align](#vim-easy-align)
-        * [coc.nvim](#cocnvim)
+        * [coc.nvim](#coc-nvim)
         * [fzf](#fzf)
-        * [vista.vim](#vistavim)
 
 <!-- vim-markdown-toc -->
 
@@ -37,7 +35,6 @@ cp -r ./nvim_config/* ~/.config/nvim/
 ```
 环境：
 python3
-c
 cpp
 ctags
 java
@@ -48,7 +45,6 @@ yarn
 npm
 pip
 fzf
-lazygit
 ranger
 
 pip3安装：
@@ -80,24 +76,20 @@ golang、c、c++的补全不支持，请自行添加
 
 ### 基本快捷键
 #### 正常模式 (Normal-mode)
-| 快捷键             | 作用                               |
-|--------------------|------------------------------------|
-| Shift+w（大写的W） | 保存文件                           |
-| Shift+q（大写的Q） | 退出并保存文件                     |
-| tq                 | 强制退出，不保存文件               |
-| te                 | 打开终端                           |
-| ta                 | 向右分屏并把光标移动向右边         |
-| ta                 | 向右分屏并把光标移动向左边         |
-| ts                 | 向下分屏并把光标移动向上边         |
-| tw                 | 向下分屏并把光标移动向下边         |
-| 方向键             | 调节分屏大小（不能用于移动光标了） |
-| \<Leader> + cs     | 清除行尾空格,同时取消高亮          |
-| \<Leader> + cm     | 清除行尾 ^M 符号,同时取消高亮      |
-| \<Leader> + ch     | 取消高亮                           |
-| \<Leader> + cl     | 删除空行                           |
-| \<Leader> + ca     | 删除行首空格                       |
-| \<Leader> + cj     | 从当前字符换行                     |
-|  Alt+r             |   一键运行代码                  |
+| 快捷键         | 作用                               |
+|----------------|------------------------------------|
+| \<Leader>+d    | 向右分屏并把光标移动向右边         |
+| \<Leader>+a    | 向右分屏并把光标移动向左边         |
+| \<Leader>s     | 向下分屏并把光标移动向上边         |
+| \<Leader>w     | 向下分屏并把光标移动向下边         |
+| 方向键         | 调节分屏大小（不能用于移动光标了） |
+| \<Leader> + cs | 清除行尾空格,同时取消高亮          |
+| \<Leader> + cm | 清除行尾 ^M 符号,同时取消高亮      |
+| \<Leader> + ch | 取消高亮                           |
+| \<Leader> + cl | 删除空行                           |
+| \<Leader> + ca | 删除行首空格                       |
+| \<Leader> + cj | 从当前字符换行                     |
+| Alt+r          | 一键运行代码                       |
 
 ---
 
@@ -111,14 +103,6 @@ golang、c、c++的补全不支持，请自行添加
 | \<Leader> + w <sup>(n)</sup> | 在窗口中显示翻译   |
 | \<Leader> + r <sup>(n)</sup> | 将文字翻译后替换   |
 | \<Leader> + x <sup>(n)</sup> | 翻译剪贴板中的文字 |
-
----
-
-#### NERDTree
-
-| 快捷键            | 作用         |
-|-------------------|--------------|
-| tt <sup>(n)</sup> | 打开NERDTree |
 
 ---
 
@@ -197,18 +181,18 @@ markdown片段，在Insert-mode模式中直接输入即可
 
 #### vim-bookmarks
 
-| 快捷键            | 作用                   |
-|-------------------|------------------------|
-| bi <sup>(n)</sup> | 在当前行添加或删除书签 |
-| ba <sup>(n)</sup> | 在当前行添加书签说明   |
-| bl <sup>(n)</sup> | 显示所有书签           |
-| bn <sup>(n)</sup> | 下一个书签             |
-| bp <sup>(n)</sup> | 上一个书签             |
-| bc <sup>(n)</sup> | 清除书签               |
-| bC <sup>(n)</sup> | 清除所有书签           |
-| bu <sup>(n)</sup> | 将书签向上移动一行     |
-| bd <sup>(n)</sup> | 将书签向下移动一行     |
-| bg <sup>(n)</sup> | 将书签移至任意一行     |
+| 快捷键                      | 作用                   |
+|-----------------------------|------------------------|
+| \<Leader>+bi <sup>(n)</sup> | 在当前行添加或删除书签 |
+| \<Leader>+ba <sup>(n)</sup> | 在当前行添加书签说明   |
+| \<Leader>+bl <sup>(n)</sup> | 显示所有书签           |
+| \<Leader>+bn <sup>(n)</sup> | 下一个书签             |
+| \<Leader>+bp <sup>(n)</sup> | 上一个书签             |
+| \<Leader>+bc <sup>(n)</sup> | 清除书签               |
+| \<Leader>+bC <sup>(n)</sup> | 清除所有书签           |
+| \<Leader>+bu <sup>(n)</sup> | 将书签向上移动一行     |
+| \<Leader>+bd <sup>(n)</sup> | 将书签向下移动一行     |
+| \<Leader>+bg <sup>(n)</sup> | 将书签移至任意一行     |
 
 ---
 
@@ -216,7 +200,7 @@ markdown片段，在Insert-mode模式中直接输入即可
 
 | 快捷键          | 作用           |
 |-----------------|----------------|
-| ga <sup>v</sup> | 启动easy-align |
+| ga <sup>(v)</sup> | 启动easy-align |
 
 ---
 
@@ -224,16 +208,26 @@ markdown片段，在Insert-mode模式中直接输入即可
 
 请看[coc.nvim](https://github.com/neoclide/coc.nvim)
 
+| 快捷键                       | 作用                             |
+| --------                     | ------                           |
+| \<Ctrl>+n                    | 代码补全时跳转到下一个提示词     |
+| \<Ctrl>+p                    | 代码补全时跳转到上一个提示词     |
+| \<Ctrl>+\<space>             | 强制弹出补全                     |
+| [g <sup>(n)</sup>            | 跳转到上一个错误处               |
+| ]g <sup>(n)</sup>            | 跳转到下一个错误处               |
+| gd <sup>(n)</sup>            | 通过调用跳转到当前符号的定义     |
+| gy  <sup>(n)</sup>           | 通过调用跳转到当前符号的类型定义 |
+| gi  <sup>(n)</sup>           | 通过调用跳转到当前符号的实现     |
+| gr <sup>(n)</sup>            | 通过调用跳转到当前符号的引用     |
+| \<Leader>+h  <sup>(n)</sup>  | 在预览窗口中显示文档             |
+| \<Leader>+rn <sup>(n)</sup>  | 变量重命名                       |
+| \<Leader>+f  <sup>(n)</sup>  | 代码格式化                       |
+| \<Leader>+a   <sup>(n)</sup> | 类似与vscode中对代码进行右键     |
+| \<space>+a   <sup>(n)</sup>  | 显示诊断                         |
+| tt    <sup>(n)</sup>         | 文件树                           |
+
 ---
 
 #### fzf
 
 请看[fzf.vim](https://github.com/junegunn/fzf.vim)
-
----
-
-#### vista.vim
-
-| 快捷键                       | 作用      |
-|------------------------------|-----------|
-| \<Leader> + v <sup>(n)</sup> | 启动vista |

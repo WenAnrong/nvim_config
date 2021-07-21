@@ -125,13 +125,11 @@ source $HOME/.config/nvim/cfgs/plug-cfg/indentline-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/markdown-preview-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/markdown-snippets.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/nerdcommenter-cfg.vim
-source $HOME/.config/nvim/cfgs/plug-cfg/nerdtree-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/vim-gutentags-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/vim-javascript-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/vim-startify-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/vim-translator.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/vimwiki-cfg.vim
-source $HOME/.config/nvim/cfgs/plug-cfg/vista-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/xtabline-cfg.vim
 source $HOME/.config/nvim/cfgs/plug-cfg/python-venv.vim
 " -----------------------------------------------------------------------------

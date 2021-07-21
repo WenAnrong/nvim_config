@@ -1,6 +1,4 @@
 " 这里嘛。。是用来一键编译代码的
-" 按下 Alt+r 一键运行
-noremap <A-r> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
   exec "w"
   if &filetype == 'c'

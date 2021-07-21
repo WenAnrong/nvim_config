@@ -11,9 +11,6 @@ Plug 'morhetz/gruvbox'
 " 虚拟环境
 Plug 'jmcantrell/vim-virtualenv',{'on': [ 'VirtualEnvActivate', 'VirtualEnvDeactivate', 'VirtualEnvList' ], 'for' : ['python', 'vim-plug']}
 
-"文件树
-Plug 'scrooloose/nerdtree',{'on': 'NERDTreeToggle'}
-
 "状态栏airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -47,10 +44,6 @@ Plug 'voldikss/vim-floaterm'
 
 " 括号高亮
 Plug 'luochen1990/rainbow'
-
-" ctags插件
-" 需要先安装ctags
-Plug 'liuchengxu/vista.vim'
 
 " 单词包裹
 " ysiw' 将光标所在字符串(一个单词)进行包裹

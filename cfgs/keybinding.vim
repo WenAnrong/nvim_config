@@ -1,24 +1,22 @@
-" 基本按键
-map W :w<CR>
-map Q :wq<CR>
-map tq :q!<CR>
-map te :terminal<CR>
+" 按下 Alt+r 一键运行
+noremap <A-r> :call CompileRunGcc()<CR>
 
 " 分屏设置
 " 向右分屏并把光标移动向右边
-map td :set splitright<CR>:vsplit<CR>
+map <space>d :set splitright<CR>:vsplit<CR>
 " 向右分屏并把光标移动向左边
-map ta :set nosplitright<CR>:vsplit<CR>
+map <space>a :set nosplitright<CR>:vsplit<CR>
 " 向下分屏并把光标移动向上边
-map ts :set nosplitbelow<CR>:split<CR>
+map <space>s :set nosplitbelow<CR>:split<CR>
 " 向下分屏并把光标移动向下边
-map tw :set splitbelow<CR>:split<CR>
+map <space>w :set splitbelow<CR>:split<CR>
 
 " 替换方向键为调节分屏大小
 map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
+
 
 " ----------------------
 " ====== markdown-preview
@@ -28,6 +26,7 @@ imap <silent> <F7> <Plug>MarkdownPreview
 nmap <silent> <F8> <Plug>StopMarkdownPreview
 imap <silent> <F8> <Plug>StopMarkdownPreview
 
+
 " ----------------------
 " ====== vim-markdown-toc
 " ----------------------
@@ -35,6 +34,7 @@ imap <silent> <F8> <Plug>StopMarkdownPreview
 map mf :GenTocGFM<CR>
 " 生成 Redcarpet 链接风格的 Table of Contents
 map mg :GenTocRedcarpet<CR>
+
 
 " ----------------------
 " ====== vim-translator
@@ -46,10 +46,6 @@ nmap <silent> <Leader>r <Plug>TranslateR
 " 翻译剪贴板中的文字
 nmap <silent> <Leader>x <Plug>TranslateX
 
-" ----------------------
-" ====== NERDTree
-" ----------------------
-map tt :NERDTreeToggle<CR>
 
 " ----------------------
 " ====== suda.vim
@@ -90,6 +86,7 @@ nmap <Localleader>fz :FloatermNew fzf<CR>
 " floaterm 打开 lazygit
 nmap <Localleader>fg :FloatermNew lazygit<CR>
 
+
 " ------------------------------
 " === Bookmarks/Buffers Operation <localleader>b <leader>b
 " ------------------------------
@@ -129,6 +126,7 @@ nmap <leader>bm :XTabMode<CR>
 " nmap <leader>bl :XTabListBuffers<CR>
 nmap <leader>bl :Buffers<CR>
 
+
 " ------------------------------
 " === Content Operation <leader>c
 " ------------------------------
@@ -145,6 +143,7 @@ nmap <localleader>ca :%s/^\s*//g<CR>:noh<CR>
 " 从当前字符换行
 noremap <leader>cj i<CR><ESC>
 
+
 " ------------------------------
 " === easy-align
 " ------------------------------
@@ -152,8 +151,3 @@ noremap <leader>cj i<CR><ESC>
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-" ------------------------------
-" === visual.vim
-" ------------------------------
-map <localleader>v :Vista<CR>

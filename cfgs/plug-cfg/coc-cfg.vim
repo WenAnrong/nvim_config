@@ -24,7 +24,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Ctrl+o 调出自动补全
+" Ctrl+space 调出自动补全
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
@@ -40,13 +40,17 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " 跳转到函数
+" 通过调用跳转到当前符号的定义
 nmap <silent> gd <Plug>(coc-definition)
+" 通过调用跳转到当前符号的类型定义
 nmap <silent> gy <Plug>(coc-type-definition)
+" 通过调用跳转到当前符号的实现
 nmap <silent> gi <Plug>(coc-implementation)
+" 通过调用跳转到当前符号的引用
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" 使用 K 在预览窗口中显示文档
+nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -94,16 +98,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
 " 使用 CTRL-S 选择选择范围
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
@@ -120,7 +114,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " 添加 (Neo)Vim 的原生状态行支持
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" 显示所以诊断
+" 显示当前工作空间的诊断
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " 管理扩展功能
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
@@ -136,3 +130,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " 恢复最新的coc列表
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" 文件树
+nnoremap tt :CocCommand explorer<CR>
