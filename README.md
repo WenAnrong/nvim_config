@@ -2,7 +2,8 @@
 
 此配置文件借鉴了[zunpeng/neovim](https://github.com/zunpeng/neovim) 和 [theniceboy](https://github.com/theniceboy/nvim/)
 
-<!-- vim-markdown-toc Redcarpet -->
+
+<!-- vim-markdown-toc GFM -->
 
 * [安装](#安装)
 * [简介](#简介)
@@ -12,15 +13,17 @@
         * [正常模式 (Normal-mode)](#正常模式-normal-mode)
     * [插件中的快捷键](#插件中的快捷键)
         * [vim-translator](#vim-translator)
-        * [suda.vim](#suda-vim)
+        * [suda.vim](#sudavim)
+        * [vim-terminal-help](#vim-terminal-help)
         * [vim-floaterm](#vim-floaterm)
-        * [vim-surround](#vim-surround)
         * [markdown-preview](#markdown-preview)
         * [vim-markdown-toc](#vim-markdown-toc)
         * [vim-bookmarks](#vim-bookmarks)
         * [vim-easy-align](#vim-easy-align)
-        * [coc.nvim](#coc-nvim)
+        * [coc.nvim](#cocnvim)
+        * [nerdcommenter](#nerdcommenter)
         * [fzf](#fzf)
+        * [vim-surround](#vim-surround)
 
 <!-- vim-markdown-toc -->
 
@@ -114,6 +117,20 @@ golang、c、c++的补全不支持，请自行添加
 
 ---
 
+#### vim-terminal-help
+| 快捷键                         | 作用                      |
+|--------------------------------|---------------------------|
+| Alt + = <sup>(n)</sup>         | 在窗口下方分屏并打开终端  |
+| ALT + SHIFT + h <sup>(n)</sup> | 将分屏移动至左边          |
+| ALT+ SHIFT+ l <sup>(n)</sup>   | 将分屏移动至右边          |
+| ALT+ SHIFT+ j <sup>(n)</sup>   | 将分屏移动至下边          |
+| ALT+ SHIFT+ k <sup>(n)</sup>   | 将分屏移动至上边          |
+| ALT+ SHIFT+ n <sup>(n)</sup>   | 移动到上一个窗口          |
+| ALT+ - <sup>(n)</sup>          | 将vim复制的内容粘贴到终端 |
+| ALT + q <sup>(n)</sup>         | 切换到终端正常模式        |
+
+---
+
 #### vim-floaterm
 
 | 快捷键                        | 作用                                |
@@ -130,12 +147,6 @@ golang、c、c++的补全不支持，请自行添加
 | \<Leader> + fr <sup>(n)</sup> | floaterm 打开ranger                 |
 | \<Leader> + fz <sup>(n)</sup> | floaterm 打开 fzf                   |
 | \<Leader> + fg <sup>(n)</sup> | floaterm 打开 lazygit               |
-
----
-
-#### vim-surround
-
-请看[vim-surround](https://github.com/tpope/vim-surround)
 
 ---
 
@@ -228,6 +239,21 @@ markdown片段，在Insert-mode模式中直接输入即可
 
 ---
 
+#### nerdcommenter
+| 快捷键                     | 作用                     |
+| --------                   | ------                   |
+| \<Leader>cc <sup>(n)</sup> | 注释光标所在行或所选区域 |
+| \<Leader>cu <sup>(n)</sup> | 反注释（取消注释）       |
+
+---
+
 #### fzf
 
 请看[fzf.vim](https://github.com/junegunn/fzf.vim)
+
+---
+
+#### vim-surround
+
+请看[vim-surround](https://github.com/tpope/vim-surround)
+

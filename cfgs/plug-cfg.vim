@@ -35,8 +35,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Yggdroot/indentLine'
 
 " 注释插件
-" 注释<leader>cc
-" 反注释<leader>cu
 Plug 'scrooloose/nerdcommenter'
 
 " 浮动窗口
@@ -69,14 +67,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'MattesGroeger/vim-bookmarks'
 
 " 内置终端配置
-" ALT + =: toggle terminal below.
-" ALT + SHIFT + h: move to the window on the left.
-" ALT + SHIFT + l: move to the window on the right.
-" ALT + SHIFT + j: move to the window below.
-" ALT + SHIFT + k: move to the window above.
-" ALT + SHIFT + p: move to the previous window.
-" ALT + -: paste register 0 to terminal.
-" ALT + q: switch to terminal normal mode.
 Plug 'skywind3000/vim-terminal-help'
 
 " fzf Plug
