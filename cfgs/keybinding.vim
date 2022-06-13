@@ -4,10 +4,6 @@ noremap <A-r> :call CompileRunGcc()<CR>
 " 分屏设置
 " 向右分屏并把光标移动向右边
 map <space>d :set splitright<CR>:vsplit<CR>
-" 向右分屏并把光标移动向左边
-map <space>a :set nosplitright<CR>:vsplit<CR>
-" 向下分屏并把光标移动向上边
-map <space>s :set nosplitbelow<CR>:split<CR>
 " 向下分屏并把光标移动向下边
 map <space>w :set splitbelow<CR>:split<CR>
 
