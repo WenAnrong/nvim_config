@@ -53,7 +53,7 @@ ranger
 pip3安装：
 sudo pip3 install pynvim
 sudo pip3 install pylint
-sudo pip3 install jedi
+sudo pip3 install pyx
 sudo pip3 install autopep8
 
 npm安装：
