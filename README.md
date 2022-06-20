@@ -59,6 +59,7 @@ sudo pip3 install autopep8
 npm安装：
 sudo npm install -g neovim
 sudo npm install -g typescript
+sudo npm install -g yarn
 ```
 
 ## 简介
