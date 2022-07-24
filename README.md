@@ -60,6 +60,7 @@ npm安装：
 sudo npm install -g neovim
 sudo npm install -g typescript
 sudo npm install -g yarn
+sudo npm install -g ctags
 ```
 
 ## 简介
